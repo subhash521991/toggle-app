@@ -1,25 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
 
+import {useState} from 'react'
+
 function App() {
+
+  const [status, setStatus] = useState(true);
+
+   const show = ()=>{
+    setStatus(true);
+
+   }
+   const hide = ()=>{
+
+    setStatus(false);
+  }
+
+  const toggle = ()=>{
+   setStatus(!status);
+    
+  }
+
+console.log(status);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {
+
+     status? <div>
+     <h1>Toggle Example</h1>
+     <img src={logo} className="App-logo" alt="logo" />
+     </div>:null
+
+     }
+     
+
+      <button onClick={()=>show()}>Show</button>
+      <button onClick={()=>hide()}>Hide</button>
+      <button onClick={()=>toggle()}>Toggle</button>
     </div>
   );
 }
 
 export default App;
+ 
